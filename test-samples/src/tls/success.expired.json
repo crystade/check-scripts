@@ -1,0 +1,79 @@
+{
+  "rttMs": 185.556081,
+  "layers": [
+    {
+      "name": "tcp",
+      "ttfbMs": 185.556081,
+      "ttlbMs": 185.556081,
+      "success": true
+    },
+    {
+      "data": {
+        "status": [
+          "CERT_DATE_INVALID(expired)"
+        ],
+        "certChain": [
+          {
+            "isCa": false,
+            "issuer": "CN=COMODO RSA Domain Validation Secure Server CA,O=COMODO CA Limited,L=Salford,ST=Greater Manchester,C=GB",
+            "serial": "99565320202650452861752791156765321481",
+            "status": [
+              "CERT_DATE_INVALID(expired)"
+            ],
+            "subject": "CN=*.badssl.com,OU=Domain Control Validated+OU=PositiveSSL Wildcard",
+            "version": 3,
+            "dnsNames": [
+              "*.badssl.com",
+              "badssl.com"
+            ],
+            "notAfter": "2015-04-12T23:59:59Z",
+            "notBefore": "2015-04-09T00:00:00Z",
+            "publicKeyAlgo": "RSA",
+            "signatureAlgo": "SHA256-RSA",
+            "sha256Fingerprint": "ba105ce02bac76888ecee47cd4eb7941653e9ac993b61b2eb3dcc82014d21b4f"
+          },
+          {
+            "isCa": true,
+            "issuer": "CN=COMODO RSA Certification Authority,O=COMODO CA Limited,L=Salford,ST=Greater Manchester,C=GB",
+            "serial": "57397899145990363081023081275480378375",
+            "status": [
+              "OK"
+            ],
+            "subject": "CN=COMODO RSA Domain Validation Secure Server CA,O=COMODO CA Limited,L=Salford,ST=Greater Manchester,C=GB",
+            "version": 3,
+            "notAfter": "2029-02-11T23:59:59Z",
+            "notBefore": "2014-02-12T00:00:00Z",
+            "publicKeyAlgo": "RSA",
+            "signatureAlgo": "SHA384-RSA",
+            "sha256Fingerprint": "02ab57e4e67a0cb48dd2ff34830e8ac40f4476fb08ca6be3f5cd846f646840f0"
+          },
+          {
+            "isCa": true,
+            "issuer": "CN=AddTrust External CA Root,OU=AddTrust External TTP Network,O=AddTrust AB,C=SE",
+            "serial": "52374340215108295845375962883522092578",
+            "status": [
+              "CERT_DATE_INVALID(expired)"
+            ],
+            "subject": "CN=COMODO RSA Certification Authority,O=COMODO CA Limited,L=Salford,ST=Greater Manchester,C=GB",
+            "version": 3,
+            "notAfter": "2020-05-30T10:48:38Z",
+            "notBefore": "2000-05-30T10:48:38Z",
+            "publicKeyAlgo": "RSA",
+            "signatureAlgo": "SHA384-RSA",
+            "sha256Fingerprint": "4f32d5dc00f715250abcc486511e37f501a899deb3bf7ea8adbbd3aef1c412da"
+          }
+        ]
+      },
+      "name": "tls",
+      "ttfbMs": 558.607831,
+      "ttlbMs": 558.607831,
+      "success": true
+    }
+  ],
+  "ttdrMs": 0.824714,
+  "ttfbMs": 558.607831,
+  "ttlbMs": 558.607831,
+  "success": true,
+  "protocol": "tls",
+  "transport": "tcp"
+}

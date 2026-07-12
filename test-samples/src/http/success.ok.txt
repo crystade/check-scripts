@@ -1,0 +1,20 @@
+{
+  "method": "PUT",
+  "protocol": "http",
+  "host": "echo.free.beeceptor.com",
+  "path": "/",
+  "ip": "2600:1900:0:3a03::701",
+  "headers": {
+    "Host": "echo.free.beeceptor.com",
+    "User-Agent": "Go-http-client/1.1",
+    "Content-Length": "0",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+    "Accept-Encoding": "gzip"
+  },
+  "parsedQueryParams": {},
+  "rawBody": "",
+  "warnings": [
+    "Error in parsing JSON body. Please check the syntax. [Unexpected end of JSON input]"
+  ]
+}

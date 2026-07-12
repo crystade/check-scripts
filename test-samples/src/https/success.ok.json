@@ -1,0 +1,126 @@
+{
+  "rttMs": 147.724841,
+  "layers": [
+    {
+      "name": "tcp",
+      "ttfbMs": 147.724841,
+      "ttlbMs": 147.724841,
+      "success": true
+    },
+    {
+      "data": {
+        "status": [
+          "OK"
+        ],
+        "certChain": [
+          {
+            "isCa": false,
+            "issuer": "CN=YE2,O=Let's Encrypt,C=US",
+            "serial": "501985014004231165119259034065889858822851",
+            "status": [
+              "OK"
+            ],
+            "subject": "CN=echo.free.beeceptor.com",
+            "version": 3,
+            "dnsNames": [
+              "echo.free.beeceptor.com"
+            ],
+            "notAfter": "2026-09-26T22:49:24Z",
+            "notBefore": "2026-06-28T22:49:25Z",
+            "publicKeyAlgo": "ECDSA",
+            "signatureAlgo": "ECDSA-SHA384",
+            "sha256Fingerprint": "4caede6691fbd59751168651ce20581f85181348bfe62297fdb06b82101dc015"
+          },
+          {
+            "isCa": true,
+            "issuer": "CN=Root YE,O=ISRG,C=US",
+            "serial": "103615881233243919450438579527522644245",
+            "status": [
+              "OK"
+            ],
+            "subject": "CN=YE2,O=Let's Encrypt,C=US",
+            "version": 3,
+            "notAfter": "2028-09-02T23:59:59Z",
+            "notBefore": "2025-09-03T00:00:00Z",
+            "publicKeyAlgo": "ECDSA",
+            "signatureAlgo": "ECDSA-SHA384",
+            "sha256Fingerprint": "97658de8c68dfa98ace1e5028a63d54a1aae911b3e21471076c6850cd08cbab4"
+          },
+          {
+            "isCa": true,
+            "issuer": "CN=ISRG Root X2,O=Internet Security Research Group,C=US",
+            "serial": "179619193732476545641173103431506703674",
+            "status": [
+              "OK"
+            ],
+            "subject": "CN=Root YE,O=ISRG,C=US",
+            "version": 3,
+            "notAfter": "2032-09-02T23:59:59Z",
+            "notBefore": "2026-05-13T00:00:00Z",
+            "publicKeyAlgo": "ECDSA",
+            "signatureAlgo": "ECDSA-SHA384",
+            "sha256Fingerprint": "0fc0901cca2bae9e9fdbb02d50d02f1094f7b36672086991b9e897626dc485f0"
+          },
+          {
+            "isCa": true,
+            "issuer": "CN=ISRG Root X1,O=Internet Security Research Group,C=US",
+            "serial": "144299725964134815114551462777128548813",
+            "status": [
+              "OK"
+            ],
+            "subject": "CN=ISRG Root X2,O=Internet Security Research Group,C=US",
+            "version": 3,
+            "notAfter": "2032-09-02T23:59:59Z",
+            "notBefore": "2026-05-13T00:00:00Z",
+            "publicKeyAlgo": "ECDSA",
+            "signatureAlgo": "SHA256-RSA",
+            "sha256Fingerprint": "ee5f7abd6981bb0255632cd8f49283451b4b18844d12040b44ee00f07b8fe2c6"
+          }
+        ]
+      },
+      "name": "tls",
+      "ttfbMs": 295.926524,
+      "ttlbMs": 295.926524,
+      "success": true
+    },
+    {
+      "data": {
+        "status": "200 OK",
+        "statusCode": 200,
+        "protocolVersion": "HTTP/1.1",
+        "responseHeaders": [
+          {
+            "name": "Date",
+            "value": "Sun, 12 Jul 2026 06:38:37 GMT"
+          },
+          {
+            "name": "Vary",
+            "value": "Accept-Encoding"
+          },
+          {
+            "name": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
+          {
+            "name": "Alt-Svc",
+            "value": "h3=\":443\"; ma=2592000"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "name": "http",
+      "ttfbMs": 443.906698,
+      "ttlbMs": 443.999909,
+      "success": true
+    }
+  ],
+  "ttdrMs": 0.494275,
+  "ttfbMs": 443.906698,
+  "ttlbMs": 443.999909,
+  "success": true,
+  "protocol": "https",
+  "transport": "tcp"
+}

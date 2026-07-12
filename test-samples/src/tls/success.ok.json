@@ -1,0 +1,78 @@
+{
+  "rttMs": 148.199679,
+  "layers": [
+    {
+      "name": "tcp",
+      "ttfbMs": 148.199679,
+      "ttlbMs": 148.199679,
+      "success": true
+    },
+    {
+      "data": {
+        "status": [
+          "CERT_COMMON_NAME_INVALID"
+        ],
+        "certChain": [
+          {
+            "isCa": false,
+            "issuer": "CN=YR2,O=Let's Encrypt,C=US",
+            "serial": "490296996410666695072171372754519889562836",
+            "status": [
+              "CERT_COMMON_NAME_INVALID"
+            ],
+            "subject": "CN=tcpbin.com",
+            "version": 3,
+            "dnsNames": [
+              "tcpbin.com"
+            ],
+            "notAfter": "2026-10-05T22:38:44Z",
+            "notBefore": "2026-07-07T22:38:45Z",
+            "publicKeyAlgo": "RSA",
+            "signatureAlgo": "SHA256-RSA",
+            "sha256Fingerprint": "b87c0847ce8ff8de9c9769c68055b5527bf796c3c020958b521e6ba7ca2b3aa1"
+          },
+          {
+            "isCa": true,
+            "issuer": "CN=Root YR,O=ISRG,C=US",
+            "serial": "104661869709039935805224238423219745561",
+            "status": [
+              "OK"
+            ],
+            "subject": "CN=YR2,O=Let's Encrypt,C=US",
+            "version": 3,
+            "notAfter": "2028-09-02T23:59:59Z",
+            "notBefore": "2025-09-03T00:00:00Z",
+            "publicKeyAlgo": "RSA",
+            "signatureAlgo": "SHA256-RSA",
+            "sha256Fingerprint": "238b85a0099c65b970477d5724f1a1d475ce5058cffe4efa8733899bdb863c47"
+          },
+          {
+            "isCa": true,
+            "issuer": "CN=ISRG Root X1,O=Internet Security Research Group,C=US",
+            "serial": "322064809926559212792997219556942571935",
+            "status": [
+              "OK"
+            ],
+            "subject": "CN=Root YR,O=ISRG,C=US",
+            "version": 3,
+            "notAfter": "2032-09-02T23:59:59Z",
+            "notBefore": "2026-05-13T00:00:00Z",
+            "publicKeyAlgo": "RSA",
+            "signatureAlgo": "SHA256-RSA",
+            "sha256Fingerprint": "072639d0b140d5bffae16ad9c3f6cc6086040621f51ee61a6d46a8915c07cf76"
+          }
+        ]
+      },
+      "name": "tls",
+      "ttfbMs": 447.502597,
+      "ttlbMs": 447.502597,
+      "success": true
+    }
+  ],
+  "ttdrMs": 0.00115,
+  "ttfbMs": 447.502597,
+  "ttlbMs": 447.502597,
+  "success": true,
+  "protocol": "tls",
+  "transport": "tcp"
+}

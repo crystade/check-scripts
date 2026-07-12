@@ -1,0 +1,46 @@
+{
+  "rttMs": 149.830611,
+  "layers": [
+    {
+      "name": "tcp",
+      "ttfbMs": 149.830611,
+      "ttlbMs": 149.830611,
+      "success": true
+    },
+    {
+      "data": {
+        "status": "200 OK",
+        "statusCode": 200,
+        "protocolVersion": "HTTP/1.1",
+        "responseHeaders": [
+          {
+            "name": "Date",
+            "value": "Sun, 12 Jul 2026 06:36:07 GMT"
+          },
+          {
+            "name": "Vary",
+            "value": "Accept-Encoding"
+          },
+          {
+            "name": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "name": "http",
+      "ttfbMs": 299.706383,
+      "ttlbMs": 299.766467,
+      "success": true
+    }
+  ],
+  "ttdrMs": 0.470046,
+  "ttfbMs": 299.706383,
+  "ttlbMs": 299.766467,
+  "success": true,
+  "protocol": "http",
+  "transport": "tcp"
+}

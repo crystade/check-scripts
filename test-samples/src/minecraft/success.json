@@ -1,0 +1,29 @@
+{
+  "rttMs": 33.246142,
+  "layers": [
+    {
+      "name": "tcp",
+      "ttfbMs": 33.246142,
+      "ttlbMs": 33.246142,
+      "success": true
+    },
+    {
+      "data": {
+        "motd": "",
+        "players": 83,
+        "version": "Waterfall 1.7.x - 26.x",
+        "maxPlayers": 84
+      },
+      "name": "minecraft",
+      "ttfbMs": 68.011753,
+      "ttlbMs": 99.843907,
+      "success": true
+    }
+  ],
+  "ttdrMs": 0.933054,
+  "ttfbMs": 68.011753,
+  "ttlbMs": 99.843907,
+  "success": true,
+  "protocol": "minecraft",
+  "transport": "tcp"
+}

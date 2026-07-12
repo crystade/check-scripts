@@ -1,0 +1,62 @@
+[
+  {
+    "sample": "success.mismatch_https",
+    "protocol": "http",
+    "metadata": "src/http/success.mismatch_https.json",
+    "payload": "src/http/success.mismatch_https.txt"
+  },
+  {
+    "sample": "success.ok",
+    "protocol": "http",
+    "metadata": "src/http/success.ok.json",
+    "payload": "src/http/success.ok.txt"
+  },
+  {
+    "sample": "success.ok",
+    "protocol": "https",
+    "metadata": "src/https/success.ok.json",
+    "payload": "src/https/success.ok.txt"
+  },
+  {
+    "sample": "success",
+    "protocol": "minecraft",
+    "metadata": "src/minecraft/success.json",
+    "payload": null
+  },
+  {
+    "sample": "failure",
+    "protocol": "tcp",
+    "metadata": "src/tcp/failure.json",
+    "payload": null
+  },
+  {
+    "sample": "success",
+    "protocol": "tcp",
+    "metadata": "src/tcp/success.json",
+    "payload": null
+  },
+  {
+    "sample": "success.expired",
+    "protocol": "tls",
+    "metadata": "src/tls/success.expired.json",
+    "payload": null
+  },
+  {
+    "sample": "success.ok",
+    "protocol": "tls",
+    "metadata": "src/tls/success.ok.json",
+    "payload": null
+  },
+  {
+    "sample": "success.self_signed",
+    "protocol": "tls",
+    "metadata": "src/tls/success.self_signed.json",
+    "payload": null
+  },
+  {
+    "sample": "success.wrong_host",
+    "protocol": "tls",
+    "metadata": "src/tls/success.wrong_host.json",
+    "payload": null
+  }
+]

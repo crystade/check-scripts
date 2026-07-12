@@ -1,0 +1,50 @@
+{
+  "rttMs": 21.83346,
+  "layers": [
+    {
+      "name": "tcp",
+      "ttfbMs": 21.83346,
+      "ttlbMs": 21.83346,
+      "success": true
+    },
+    {
+      "data": {
+        "status": "400 Bad Request",
+        "statusCode": 400,
+        "protocolVersion": "HTTP/1.1",
+        "responseHeaders": [
+          {
+            "name": "Server",
+            "value": "cloudflare"
+          },
+          {
+            "name": "Date",
+            "value": "Sun, 12 Jul 2026 06:24:10 GMT"
+          },
+          {
+            "name": "Content-Type",
+            "value": "text/html"
+          },
+          {
+            "name": "Content-Length",
+            "value": "253"
+          },
+          {
+            "name": "Cf-Ray",
+            "value": "-"
+          }
+        ]
+      },
+      "name": "http",
+      "ttfbMs": 43.203459,
+      "ttlbMs": 43.210476,
+      "success": true
+    }
+  ],
+  "ttdrMs": 0.559745,
+  "ttfbMs": 43.203459,
+  "ttlbMs": 43.210476,
+  "success": true,
+  "protocol": "http",
+  "transport": "tcp"
+}

@@ -1,0 +1,89 @@
+const locations = list.of(
+    "us-west1",
+    "europe-north1",
+    "asia-southeast1",
+    "australia-southeast1"
+);
+
+const errorList = list.of(
+  {
+    "code": "",
+    "message": ""
+  },
+  {
+    "code": "NETWORK_POLICY_REJECTED",
+    "message": "The target URL was rejected by the network policy before any HTTP request was made."
+  },
+  {
+    "code": "REQUEST_BUILD_FAILED",
+    "message": "The HTTP request could not be constructed due to an invalid URL, HTTP method, or request configuration."
+  },
+  {
+    "code": "PROXY_ROUTING_FAILED",
+    "message": "Failed to route the request through the configured proxy."
+  },
+  {
+    "code": "CONNECTION_FAILED",
+    "message": "The outbound HTTP connection failed due to a network, DNS, TCP, or TLS error."
+  },
+  {
+    "code": "PROXY_UPSTREAM_ERROR",
+    "message": "The proxy failed to reach or forward the request to the upstream target."
+  },
+  {
+    "code": "EXECUTION_TIMEOUT",
+    "message": "The outbound HTTP request exceeded the configured execution timeout."
+  },
+  {
+    "code": "HTTP_NON_SUCCESS",
+    "message": "The outbound HTTP request returned a non-success (non-2xx) status code."
+  },
+  {
+    "code": "RESPONSE_BODY_FAILED",
+    "message": "Failed to read the HTTP response body."
+  },
+  {
+    "code": "EXPIRED_REQUEST",
+    "message": "The request expired before execution because it exceeded the allowed staleness window."
+  }
+);
+
+for loc in locations {
+    const id = "00000000-0000-0000-0000-000000000000";
+    const team_id = "00000000-0000-0000-0000-000000000000";
+    const monitor_id = "00000000-0000-0000-0000-000000000000";
+    const check_id = "00000000-0000-0000-0000-000000000000";
+    const location = loc;
+    const metadata = if len(_metadata) == 0 { {} } else { json.decode(_metadata) };
+    const payload = _payload;
+
+    for err in errorList {
+        const error_code = err.code;
+        const error_message = err.message;
+
+        const alerting = {
+            send: func(obj) {
+                assert(typeof(obj) == "Map", "expect the first arg to be Map");
+                assert(obj["header"] == null || typeof(obj["header"]) == "String", "expect 'header' to be String");
+                assert(typeof(obj["message"]) == "String", "expect 'message' to be String");
+                assert(obj["footer"] == null || typeof(obj["footer"]) == "String", "expect 'footer' to be String");
+
+                if obj["deduplication"] != null {
+                    assert(typeof(obj["deduplication"]) == "Map", "expect 'deduplication' to be Map");
+                    assert(typeof(obj["deduplication"]["key"]) == "String", "expect 'deduplication.key' to be String");
+                    assert(typeof(obj["deduplication"]["ttl"]) == "String", "expect 'deduplication.ttl' to be String");
+                }
+            }
+        };
+
+        const incident = {
+            signal: func(obj) {
+                assert(typeof(obj) == "Map", "expect the first arg to be Map");
+                assert(obj["severity"] == null || typeof(obj["severity"]) == "String", "expect 'severity' to be String");
+            },
+            recover: func() {}
+        };
+
+        # test
+    }
+}

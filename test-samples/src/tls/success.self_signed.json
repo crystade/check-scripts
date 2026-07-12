@@ -1,0 +1,51 @@
+{
+  "rttMs": 186.552475,
+  "layers": [
+    {
+      "name": "tcp",
+      "ttfbMs": 186.552475,
+      "ttlbMs": 186.552475,
+      "success": true
+    },
+    {
+      "data": {
+        "status": [
+          "CERT_AUTHORITY_INVALID(self-signed)",
+          "CERT_VALIDITY_TOO_LONG"
+        ],
+        "certChain": [
+          {
+            "isCa": false,
+            "issuer": "CN=*.badssl.com,O=BadSSL,L=San Francisco,ST=California,C=US",
+            "serial": "12638733698188967337",
+            "status": [
+              "CERT_AUTHORITY_INVALID(self-signed)",
+              "CERT_VALIDITY_TOO_LONG"
+            ],
+            "subject": "CN=*.badssl.com,O=BadSSL,L=San Francisco,ST=California,C=US",
+            "version": 3,
+            "dnsNames": [
+              "*.badssl.com",
+              "badssl.com"
+            ],
+            "notAfter": "2028-07-06T21:00:20Z",
+            "notBefore": "2026-07-07T21:00:20Z",
+            "publicKeyAlgo": "RSA",
+            "signatureAlgo": "SHA256-RSA",
+            "sha256Fingerprint": "5470e417c9f9dfe5f42b93a056237f7db057c4d98fbdbbafdab2baa7453991f2"
+          }
+        ]
+      },
+      "name": "tls",
+      "ttfbMs": 561.963552,
+      "ttlbMs": 561.963552,
+      "success": true
+    }
+  ],
+  "ttdrMs": 0.875211,
+  "ttfbMs": 561.963552,
+  "ttlbMs": 561.963552,
+  "success": true,
+  "protocol": "tls",
+  "transport": "tcp"
+}

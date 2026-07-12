@@ -1,0 +1,64 @@
+{
+  "rttMs": 183.355331,
+  "layers": [
+    {
+      "name": "tcp",
+      "ttfbMs": 183.355331,
+      "ttlbMs": 183.355331,
+      "success": true
+    },
+    {
+      "data": {
+        "status": [
+          "CERT_COMMON_NAME_INVALID"
+        ],
+        "certChain": [
+          {
+            "isCa": false,
+            "issuer": "CN=R13,O=Let's Encrypt,C=US",
+            "serial": "453208471855219011886595245509583303423539",
+            "status": [
+              "CERT_COMMON_NAME_INVALID"
+            ],
+            "subject": "CN=*.badssl.com",
+            "version": 3,
+            "dnsNames": [
+              "*.badssl.com",
+              "badssl.com"
+            ],
+            "notAfter": "2026-08-24T20:02:49Z",
+            "notBefore": "2026-05-26T20:02:50Z",
+            "publicKeyAlgo": "RSA",
+            "signatureAlgo": "SHA256-RSA",
+            "sha256Fingerprint": "883a6528cee7b99186bf0568a3130f47d735055d1204091079f4e2808bcc4181"
+          },
+          {
+            "isCa": true,
+            "issuer": "CN=ISRG Root X1,O=Internet Security Research Group,C=US",
+            "serial": "119635429456979344322213464088047616773",
+            "status": [
+              "OK"
+            ],
+            "subject": "CN=R13,O=Let's Encrypt,C=US",
+            "version": 3,
+            "notAfter": "2027-03-12T23:59:59Z",
+            "notBefore": "2024-03-13T00:00:00Z",
+            "publicKeyAlgo": "RSA",
+            "signatureAlgo": "SHA256-RSA",
+            "sha256Fingerprint": "d3b128216a843f8ef1321501f5df52a5df52939ee2c19297712cd3de4d419354"
+          }
+        ]
+      },
+      "name": "tls",
+      "ttfbMs": 552.69166,
+      "ttlbMs": 552.69166,
+      "success": true
+    }
+  ],
+  "ttdrMs": 0.618098,
+  "ttfbMs": 552.69166,
+  "ttlbMs": 552.69166,
+  "success": true,
+  "protocol": "tls",
+  "transport": "tcp"
+}

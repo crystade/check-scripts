@@ -1,0 +1,17 @@
+{
+  "rttMs": 147.069954,
+  "layers": [
+    {
+      "name": "tcp",
+      "ttfbMs": 147.069954,
+      "ttlbMs": 147.069954,
+      "success": true
+    }
+  ],
+  "ttdrMs": 0.022372,
+  "ttfbMs": 147.069954,
+  "ttlbMs": 147.069954,
+  "success": true,
+  "protocol": "tcp",
+  "transport": "tcp"
+}
