@@ -61,5 +61,5 @@ go run ./tools/index_test_samples.go
 Execute the Rice test script against every sample:
 
 ```
-go test ./test-samples/test/... -v
+go test ./template-testing/... -v
 ```
