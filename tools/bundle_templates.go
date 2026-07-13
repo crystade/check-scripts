@@ -5,15 +5,18 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 type Variant struct {
+	ID          string `json:"id"`
 	Name        string `json:"name"`
 	Description string `json:"description,omitempty"`
 	Script      string `json:"script"`
 }
 
 type Template struct {
+	ID          string    `json:"id"`
 	Name        string    `json:"name"`
 	Description string    `json:"description,omitempty"`
 	Variants    []Variant `json:"variants"`
@@ -62,6 +65,7 @@ func main() {
 		}
 
 		tmpl := Template{
+			ID:          entry.Name(),
 			Name:        manifest.Name,
 			Description: manifest.Description,
 		}
@@ -74,7 +78,11 @@ func main() {
 				continue
 			}
 
+			scriptBase := filepath.Base(mv.ScriptFile)
+			variantID := entry.Name() + ":" + strings.TrimSuffix(scriptBase, filepath.Ext(scriptBase))
+
 			tmpl.Variants = append(tmpl.Variants, Variant{
+				ID:          variantID,
 				Name:        mv.Name,
 				Description: mv.Description,
 				Script:      string(scriptData),
