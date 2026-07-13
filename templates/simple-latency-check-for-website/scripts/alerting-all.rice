@@ -1,0 +1,14 @@
+if context.error == null && context.metadata.rttMs > 100 {
+    alerting.send({
+        header: "Monitor [%s] notices high RTT from %s"
+            .format(context.monitor.name, context.location),
+        message: "Measured a RTT of %.2fms\nCheck ID: %s"
+            .format(context.metadata.rttMs, context.check.id),
+        footer: "%s • Monitored by Crystade"
+            .format(context.team.name),
+        deduplication: {
+            key: context.monitor.id + ":simple-uptime-check",
+            ttl: "1m"
+        }
+    });
+}

@@ -1,0 +1,9 @@
+if context.error == null {
+    incident.recover();
+} else {
+    incident.signal({
+        severity: "critical",
+        title: "Monitor [%s] is down from %s".format(context.monitor.name, context.location),
+        content: "Got error: %s (code: %s)\nCheck ID: %s".format(context.error.message, context.error.code, context.check.id)
+    });
+}

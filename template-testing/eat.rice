@@ -49,17 +49,33 @@ const errorList = list.of(
 );
 
 for loc in locations {
-    const id = "00000000-0000-0000-0000-000000000000";
-    const team_id = "00000000-0000-0000-0000-000000000000";
-    const monitor_id = "00000000-0000-0000-0000-000000000000";
-    const check_id = "00000000-0000-0000-0000-000000000000";
-    const location = loc;
-    const metadata = if len(_metadata) == 0 { {} } else { json.decode(_metadata) };
-    const payload = _payload;
+    const context = {
+      id: "00000000-0000-0000-0000-000000000000",
+      team: {
+        id: "00000000-0000-0000-0000-000000000000",
+        name: ""
+      },
+      monitor: {
+        id: "00000000-0000-0000-0000-000000000000",
+        name: ""
+      },
+      check: {
+        id: "00000000-0000-0000-0000-000000000000",
+        name: ""
+      },
+      location: loc,
+      metadata: if len(_metadata) == 0 { {} } 
+                else { json.decode(_metadata) },
+      payload: _payload,
+      error: {
+        code: "",
+        message: ""
+      }
+    };
 
     for err in errorList {
-        const error_code = err.code;
-        const error_message = err.message;
+        context.error["code"] = err.code;
+        context.error["message"] = err.message;
 
         const alerting = {
             send: func(obj) {
@@ -84,6 +100,6 @@ for loc in locations {
             recover: func() {}
         };
 
-        # test
+        #{{__script__}}
     }
 }

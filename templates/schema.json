@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Template",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "variants"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The template name."
+    },
+    "description": {
+      "type": "string",
+      "description": "The template description."
+    },
+    "variants": {
+      "type": "array",
+      "description": "The list of template variants.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/variant"
+      }
+    }
+  },
+  "$defs": {
+    "variant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "scriptFile"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The variant name."
+        },
+        "description": {
+          "type": "string",
+          "description": "The variant description."
+        },
+        "scriptFile": {
+          "type": "string",
+          "description": "The path to the script file."
+        }
+      }
+    }
+  }
+}

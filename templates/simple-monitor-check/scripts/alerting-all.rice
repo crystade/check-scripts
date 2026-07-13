@@ -1,0 +1,14 @@
+if context.error != null {
+    alerting.send({
+        header: "Monitor [%s] is down from %s"
+            .format(context.monitor.name, context.location),
+        message: "Got error: %s (code: %s)\nCheck ID: %s"
+            .format(context.error.message, context.error.code, context.check.id),
+        footer: "%s • Monitored by Crystade"
+            .format(context.team.name),
+        deduplication: {
+            key: context.monitor.id + ":simple-uptime-check",
+            ttl: "1m"
+        }
+    });
+}

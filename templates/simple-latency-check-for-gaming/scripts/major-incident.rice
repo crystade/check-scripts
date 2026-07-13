@@ -1,0 +1,11 @@
+if context.error == null {
+    if context.metadata.rttMs <= 60 {
+        incident.recover();
+    } else {
+        incident.signal({
+            severity: "major",
+            title: "Monitor [%s] notices high RTT from %s".format(context.monitor.name, context.location),
+            content: "Measured a RTT of %.2fms\nCheck ID: %s".format(context.metadata.rttMs, context.check.id)
+        });
+    }
+}

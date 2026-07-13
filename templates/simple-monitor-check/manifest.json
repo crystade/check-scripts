@@ -1,0 +1,22 @@
+{
+    "name": "Simple Monitor Check",
+    "description": "A simple script to check for monitor status",
+    "variants": [
+        {
+            "name": "Alert to all channels on error",
+            "scriptFile": "scripts/alerting-all.rice"
+        },
+        {
+            "name": "Report minor incident on error",
+            "scriptFile": "scripts/minor-incident.rice"
+        },
+        {
+            "name": "Report major incident on error",
+            "scriptFile": "scripts/major-incident.rice"
+        },
+        {
+            "name": "Report critical incident on error",
+            "scriptFile": "scripts/critical-incident.rice"
+        }
+    ]
+}

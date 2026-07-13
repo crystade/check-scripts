@@ -1,0 +1,22 @@
+{
+    "name": "Simple Latency Check for Websites",
+    "description": "A RTT around 100ms is considered acceptable for most websites per https://aws.amazon.com/what-is/rtt-in-networking/",
+    "variants": [
+        {
+            "name": "Alert to all channels if exceeds 100ms RTT",
+            "scriptFile": "scripts/alerting-all.rice"
+        },
+        {
+            "name": "Report minor incident if exceeds 100ms RTT",
+            "scriptFile": "scripts/minor-incident.rice"
+        },
+        {
+            "name": "Report major incident if exceeds 100ms RTT",
+            "scriptFile": "scripts/major-incident.rice"
+        },
+        {
+            "name": "Report critical incident if exceeds 100ms RTT",
+            "scriptFile": "scripts/critical-incident.rice"
+        }
+    ]
+}
