@@ -60,8 +60,7 @@ for loc in locations {
         name: ""
       },
       check: {
-        id: "00000000-0000-0000-0000-000000000000",
-        name: ""
+        id: "00000000-0000-0000-0000-000000000000"
       },
       location: loc,
       metadata: if len(_metadata) == 0 { {} } 
