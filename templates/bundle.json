@@ -2,7 +2,7 @@
   {
     "id": "simple-latency-check-for-gaming",
     "name": "Simple Latency Check for Gaming Servers",
-    "description": "A RTT around 60ms is considered acceptable for most online gaming servers",
+    "description": "A RTT around 60ms is considered acceptable for most online gaming servers\n",
     "variants": [
       {
         "id": "simple-latency-check-for-gaming:alerting-all",
@@ -29,7 +29,7 @@
   {
     "id": "simple-latency-check-for-website",
     "name": "Simple Latency Check for Websites",
-    "description": "A RTT around 100ms is considered acceptable for most websites per https://aws.amazon.com/what-is/rtt-in-networking/",
+    "description": "A RTT around 100ms is considered acceptable for most websites per https://aws.amazon.com/what-is/rtt-in-networking/\n",
     "variants": [
       {
         "id": "simple-latency-check-for-website:alerting-all",
@@ -56,7 +56,7 @@
   {
     "id": "simple-monitor-check",
     "name": "Simple Monitor Check",
-    "description": "A simple script to check for monitor status",
+    "description": "A simple script to check for monitor status\n",
     "variants": [
       {
         "id": "simple-monitor-check:alerting-all",

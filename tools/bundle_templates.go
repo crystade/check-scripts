@@ -6,6 +6,8 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	"gopkg.in/yaml.v3"
 )
 
 type Variant struct {
@@ -23,15 +25,15 @@ type Template struct {
 }
 
 type ManifestVariant struct {
-	Name        string `json:"name"`
-	Description string `json:"description,omitempty"`
-	ScriptFile  string `json:"scriptFile"`
+	Name        string `yaml:"name"`
+	Description string `yaml:"description,omitempty"`
+	ScriptFile  string `yaml:"scriptFile"`
 }
 
 type Manifest struct {
-	Name        string            `json:"name"`
-	Description string            `json:"description,omitempty"`
-	Variants    []ManifestVariant `json:"variants"`
+	Name        string            `yaml:"name"`
+	Description string            `yaml:"description,omitempty"`
+	Variants    []ManifestVariant `yaml:"variants"`
 }
 
 func main() {
@@ -50,7 +52,7 @@ func main() {
 		}
 
 		tmplDir := filepath.Join(templatesDir, entry.Name())
-		manifestPath := filepath.Join(tmplDir, "manifest.json")
+		manifestPath := filepath.Join(tmplDir, "manifest.yml")
 
 		manifestData, err := os.ReadFile(manifestPath)
 		if err != nil {
@@ -59,7 +61,7 @@ func main() {
 		}
 
 		var manifest Manifest
-		if err := json.Unmarshal(manifestData, &manifest); err != nil {
+		if err := yaml.Unmarshal(manifestData, &manifest); err != nil {
 			fmt.Fprintf(os.Stderr, "Warning: skipping %s: invalid manifest: %v\n", entry.Name(), err)
 			continue
 		}
