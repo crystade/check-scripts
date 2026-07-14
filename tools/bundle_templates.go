@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/anhcraft/rice/frontend"
 	"gopkg.in/yaml.v3"
 )
 
@@ -15,6 +16,7 @@ type Variant struct {
 	Name        string `json:"name"`
 	Description string `json:"description,omitempty"`
 	Script      string `json:"script"`
+	Checksum    string `json:"checksum"`
 }
 
 type Template struct {
@@ -83,11 +85,19 @@ func main() {
 			scriptBase := filepath.Base(mv.ScriptFile)
 			variantID := entry.Name() + ":" + strings.TrimSuffix(scriptBase, filepath.Ext(scriptBase))
 
+			tokens, err := frontend.Tokenize(string(scriptData))
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "Warning: %s: cannot tokenize %s: %v\n", entry.Name(), mv.ScriptFile, err)
+				continue
+			}
+			checksum := frontend.Checksum(tokens)
+
 			tmpl.Variants = append(tmpl.Variants, Variant{
 				ID:          variantID,
 				Name:        mv.Name,
 				Description: mv.Description,
 				Script:      string(scriptData),
+				Checksum:    checksum,
 			})
 		}
 
