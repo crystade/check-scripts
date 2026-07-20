@@ -8,13 +8,17 @@
     "variants"
   ],
   "properties": {
+    "groupId": {
+      "type": "string",
+      "description": "The template group id."
+    },
     "name": {
       "type": "string",
-      "description": "The template name."
+      "description": "The template group name."
     },
     "description": {
       "type": "string",
-      "description": "The template description."
+      "description": "The template group description."
     },
     "variants": {
       "type": "array",
@@ -30,10 +34,15 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "variantId",
         "name",
         "scriptFile"
       ],
       "properties": {
+        "variantId": {
+          "type": "string",
+          "description": "The variant id."
+        },
         "name": {
           "type": "string",
           "description": "The variant name."

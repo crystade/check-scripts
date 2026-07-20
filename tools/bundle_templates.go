@@ -12,7 +12,7 @@ import (
 )
 
 type Variant struct {
-	ID          string `json:"id"`
+	VariantID   string `json:"variantId"`
 	Name        string `json:"name"`
 	Description string `json:"description,omitempty"`
 	Script      string `json:"script"`
@@ -20,7 +20,7 @@ type Variant struct {
 }
 
 type Template struct {
-	ID          string    `json:"id"`
+	GroupID     string    `json:"groupId"`
 	Name        string    `json:"name"`
 	Description string    `json:"description,omitempty"`
 	Variants    []Variant `json:"variants"`
@@ -69,7 +69,7 @@ func main() {
 		}
 
 		tmpl := Template{
-			ID:          entry.Name(),
+			GroupID:     entry.Name(),
 			Name:        manifest.Name,
 			Description: manifest.Description,
 		}
@@ -93,7 +93,7 @@ func main() {
 			checksum := frontend.Checksum(tokens)
 
 			tmpl.Variants = append(tmpl.Variants, Variant{
-				ID:          variantID,
+				VariantID:   variantID,
 				Name:        mv.Name,
 				Description: mv.Description,
 				Script:      string(scriptData),

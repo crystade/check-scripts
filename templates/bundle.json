@@ -1,29 +1,29 @@
 [
   {
-    "id": "simple-latency-check-for-gaming",
+    "groupId": "simple-latency-check-for-gaming",
     "name": "Simple Latency Check for Gaming Servers",
     "description": "A RTT around 60ms is considered acceptable for most online gaming servers\n",
     "variants": [
       {
-        "id": "simple-latency-check-for-gaming:alerting-all",
+        "variantId": "simple-latency-check-for-gaming:alerting-all",
         "name": "Alert to all channels if exceeds 60ms RTT",
         "script": "if context.error == null \u0026\u0026 context.metadata.rttMs \u003e 60 {\r\n    alerting.send({\r\n        header: \"Monitor [%s] notices high RTT from %s\"\r\n            .format(context.monitor.name, context.location),\r\n        message: \"Measured a RTT of %.2fms\\nCheck ID: %s\"\r\n            .format(context.metadata.rttMs, context.check.id),\r\n        footer: \"%s • Monitored by Crystade\"\r\n            .format(context.team.name),\r\n        deduplication: {\r\n            key: context.monitor.id + \":simple-uptime-check\",\r\n            ttl: \"1m\"\r\n        }\r\n    });\r\n}\r\n",
         "checksum": "aa1104d3f966ea15d513b527fa67f06245109c796b8b825bdfc3fa9974674c7c"
       },
       {
-        "id": "simple-latency-check-for-gaming:minor-incident",
+        "variantId": "simple-latency-check-for-gaming:minor-incident",
         "name": "Report minor incident if exceeds 60ms RTT",
         "script": "if context.error == null {\r\n    if context.metadata.rttMs \u003c= 60 {\r\n        incident.recover();\r\n    } else {\r\n        incident.signal({\r\n            severity: \"minor\",\r\n            title: \"Monitor [%s] notices high RTT from %s\".format(context.monitor.name, context.location),\r\n            content: \"Measured a RTT of %.2fms\\nCheck ID: %s\".format(context.metadata.rttMs, context.check.id)\r\n        });\r\n    }\r\n}",
         "checksum": "35331d5cec89fbfd83d14898fb34201542ef0055f9129f670ad0ef2ca1e97d88"
       },
       {
-        "id": "simple-latency-check-for-gaming:major-incident",
+        "variantId": "simple-latency-check-for-gaming:major-incident",
         "name": "Report major incident if exceeds 60ms RTT",
         "script": "if context.error == null {\r\n    if context.metadata.rttMs \u003c= 60 {\r\n        incident.recover();\r\n    } else {\r\n        incident.signal({\r\n            severity: \"major\",\r\n            title: \"Monitor [%s] notices high RTT from %s\".format(context.monitor.name, context.location),\r\n            content: \"Measured a RTT of %.2fms\\nCheck ID: %s\".format(context.metadata.rttMs, context.check.id)\r\n        });\r\n    }\r\n}",
         "checksum": "d088ad7f4f6a8f3db421cca9a2b84bf14756552426a5541c47079bd1257388d6"
       },
       {
-        "id": "simple-latency-check-for-gaming:critical-incident",
+        "variantId": "simple-latency-check-for-gaming:critical-incident",
         "name": "Report critical incident if exceeds 60ms RTT",
         "script": "if context.error == null {\r\n    if context.metadata.rttMs \u003c= 60 {\r\n        incident.recover();\r\n    } else {\r\n        incident.signal({\r\n            severity: \"critical\",\r\n            title: \"Monitor [%s] notices high RTT from %s\".format(context.monitor.name, context.location),\r\n            content: \"Measured a RTT of %.2fms\\nCheck ID: %s\".format(context.metadata.rttMs, context.check.id)\r\n        });\r\n    }\r\n}",
         "checksum": "4d3e255ad717d1aad108d6cdb6c45645b1987867cc84c4ec5c4644b1eebb3cab"
@@ -31,30 +31,30 @@
     ]
   },
   {
-    "id": "simple-latency-check-for-website",
+    "groupId": "simple-latency-check-for-website",
     "name": "Simple Latency Check for Websites",
     "description": "A RTT around 100ms is considered acceptable for most websites per https://aws.amazon.com/what-is/rtt-in-networking/\n",
     "variants": [
       {
-        "id": "simple-latency-check-for-website:alerting-all",
+        "variantId": "simple-latency-check-for-website:alerting-all",
         "name": "Alert to all channels if exceeds 100ms RTT",
         "script": "if context.error == null \u0026\u0026 context.metadata.rttMs \u003e 100 {\r\n    alerting.send({\r\n        header: \"Monitor [%s] notices high RTT from %s\"\r\n            .format(context.monitor.name, context.location),\r\n        message: \"Measured a RTT of %.2fms\\nCheck ID: %s\"\r\n            .format(context.metadata.rttMs, context.check.id),\r\n        footer: \"%s • Monitored by Crystade\"\r\n            .format(context.team.name),\r\n        deduplication: {\r\n            key: context.monitor.id + \":simple-uptime-check\",\r\n            ttl: \"1m\"\r\n        }\r\n    });\r\n}\r\n",
         "checksum": "4e398d008c9c49c30fae55019ac1688512aaca57119fb203cf6fe558a368a969"
       },
       {
-        "id": "simple-latency-check-for-website:minor-incident",
+        "variantId": "simple-latency-check-for-website:minor-incident",
         "name": "Report minor incident if exceeds 100ms RTT",
         "script": "if context.error == null {\r\n    if context.metadata.rttMs \u003c= 100 {\r\n        incident.recover();\r\n    } else {\r\n        incident.signal({\r\n            severity: \"minor\",\r\n            title: \"Monitor [%s] notices high RTT from %s\".format(context.monitor.name, context.location),\r\n            content: \"Measured a RTT of %.2fms\\nCheck ID: %s\".format(context.metadata.rttMs, context.check.id)\r\n        });\r\n    }\r\n}",
         "checksum": "0cf81bda06f5b14a18118d5c5ae0db95ac1f900bded34b244e6333774e555a86"
       },
       {
-        "id": "simple-latency-check-for-website:major-incident",
+        "variantId": "simple-latency-check-for-website:major-incident",
         "name": "Report major incident if exceeds 100ms RTT",
         "script": "if context.error == null {\r\n    if context.metadata.rttMs \u003c= 100 {\r\n        incident.recover();\r\n    } else {\r\n        incident.signal({\r\n            severity: \"major\",\r\n            title: \"Monitor [%s] notices high RTT from %s\".format(context.monitor.name, context.location),\r\n            content: \"Measured a RTT of %.2fms\\nCheck ID: %s\".format(context.metadata.rttMs, context.check.id)\r\n        });\r\n    }\r\n}",
         "checksum": "3be24e3bd1df370a4131cee474d2798a1252308410624234791d0b6eee2f7729"
       },
       {
-        "id": "simple-latency-check-for-website:critical-incident",
+        "variantId": "simple-latency-check-for-website:critical-incident",
         "name": "Report critical incident if exceeds 100ms RTT",
         "script": "if context.error == null {\r\n    if context.metadata.rttMs \u003c= 100 {\r\n        incident.recover();\r\n    } else {\r\n        incident.signal({\r\n            severity: \"critical\",\r\n            title: \"Monitor [%s] notices high RTT from %s\".format(context.monitor.name, context.location),\r\n            content: \"Measured a RTT of %.2fms\\nCheck ID: %s\".format(context.metadata.rttMs, context.check.id)\r\n        });\r\n    }\r\n}",
         "checksum": "09fc01306e3a112aa9c41a923479e825c6e9ae54f6017cb2bd115cdbc1d5f64d"
@@ -62,30 +62,30 @@
     ]
   },
   {
-    "id": "simple-monitor-check",
+    "groupId": "simple-monitor-check",
     "name": "Simple Monitor Check",
     "description": "A simple script to check for monitor status\n",
     "variants": [
       {
-        "id": "simple-monitor-check:alerting-all",
+        "variantId": "simple-monitor-check:alerting-all",
         "name": "Alert to all channels on error",
         "script": "if context.error != null {\r\n    alerting.send({\r\n        header: \"Monitor [%s] is down from %s\"\r\n            .format(context.monitor.name, context.location),\r\n        message: \"Got error: %s (code: %s)\\nCheck ID: %s\"\r\n            .format(context.error.message, context.error.code, context.check.id),\r\n        footer: \"%s • Monitored by Crystade\"\r\n            .format(context.team.name),\r\n        deduplication: {\r\n            key: context.monitor.id + \":simple-uptime-check\",\r\n            ttl: \"1m\"\r\n        }\r\n    });\r\n}\r\n",
         "checksum": "59ae4b072553ac418b4c1c6fa26824fc9980636a3eaae55e7766b237f7eda5df"
       },
       {
-        "id": "simple-monitor-check:minor-incident",
+        "variantId": "simple-monitor-check:minor-incident",
         "name": "Report minor incident on error",
         "script": "if context.error == null {\r\n    incident.recover();\r\n} else {\r\n    incident.signal({\r\n        severity: \"minor\",\r\n        title: \"Monitor [%s] is down from %s\".format(context.monitor.name, context.location),\r\n        content: \"Got error: %s (code: %s)\\nCheck ID: %s\".format(context.error.message, context.error.code, context.check.id)\r\n    });\r\n}\r\n",
         "checksum": "70c2b674bc2d2e4e82091123ce8466ac4e9f86c551b3fc8fc1976a86c9bc0c75"
       },
       {
-        "id": "simple-monitor-check:major-incident",
+        "variantId": "simple-monitor-check:major-incident",
         "name": "Report major incident on error",
         "script": "if context.error == null {\r\n    incident.recover();\r\n} else {\r\n    incident.signal({\r\n        severity: \"major\",\r\n        title: \"Monitor [%s] is down from %s\".format(context.monitor.name, context.location),\r\n        content: \"Got error: %s (code: %s)\\nCheck ID: %s\".format(context.error.message, context.error.code, context.check.id)\r\n    });\r\n}\r\n",
         "checksum": "6945ffc3ac15ccf591b3eb3b6f7c91894e85c3d2a4c0357c252e00d30744627b"
       },
       {
-        "id": "simple-monitor-check:critical-incident",
+        "variantId": "simple-monitor-check:critical-incident",
         "name": "Report critical incident on error",
         "script": "if context.error == null {\r\n    incident.recover();\r\n} else {\r\n    incident.signal({\r\n        severity: \"critical\",\r\n        title: \"Monitor [%s] is down from %s\".format(context.monitor.name, context.location),\r\n        content: \"Got error: %s (code: %s)\\nCheck ID: %s\".format(context.error.message, context.error.code, context.check.id)\r\n    });\r\n}\r\n",
         "checksum": "3b071196134898091b69796c88744a315fdb297cf8205b635fc75d48a3cb6991"
