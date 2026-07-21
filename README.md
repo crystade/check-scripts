@@ -1,14 +1,23 @@
 # Check Scripts
 
-## Templates
+This repository hosts:
+1. Official and community-made templates for check scripts on active monitoring
+![](./assets/image1.png)
 
-The `templates/` directory contains reusable Rice script templates organized per folder.
+2. Samples for running tests
+![](./assets/image2.png)
+
+## [Contribute] Templates
+
+The `templates/` directory contains reusable [Rice](https://github.com/anhcraft/rice) script templates organized per folder.
+- [Learn](https://github.com/anhcraft/rice/tree/main/guides) Rice
+- [Try](https://rice-playground.vercel.app/) the playground
 
 ### Structure
 
 ```
 templates/
-├── bundle.json                 # Auto-generated bundle of all templates
+├── bundle.json                 # Generated bundle of all templates
 ├── schema.json                 # Manifest JSON schema
 └── {template-name}/
     ├── manifest.yml            # Template metadata + variant list
@@ -16,13 +25,11 @@ templates/
         └── {variant}.rice      # Rice script per variant
 ```
 
-### Manifest schema
+### Step 1: Manifest schema and Script files
 
 Each template folder contains a `manifest.yml` (YAML) defining the template name, description, and variants. Each variant references a `scriptFile` — the relative path to its Rice script.
 
-A JSON Schema for the manifest is available at `templates/schema.json`.
-
-### Bundling templates
+### Step 2: Bundling templates
 
 Bundle all templates into a single self-contained `bundle.json`, embedding each script's content directly:
 
@@ -30,11 +37,9 @@ Bundle all templates into a single self-contained `bundle.json`, embedding each 
 go run ./tools/bundle_templates.go
 ```
 
-The output replaces `scriptFile` with `script` (inline content) for each variant.
+## [Contribute] Test Samples
 
-## Test Samples
-
-The `test-samples/` directory contains mock check results used to validate Rice alerting scripts.
+The `test-samples/` directory contains mock check results used to validate check scripts.
 
 ### Structure
 
@@ -47,7 +52,7 @@ test-samples/
     └── {sample}.txt     # Payload (request debug dump)
 ```
 
-### Indexing samples
+### Step 1: Indexing samples
 
 Scan all sample files and regenerate `index.json`:
 
@@ -55,7 +60,7 @@ Scan all sample files and regenerate `index.json`:
 go run ./tools/index_test_samples.go
 ```
 
-### Bundling samples
+### Step 2: Bundling samples
 
 Bundle all samples into a single self-contained `bundle.json`, embedding each sample's metadata and payload inline as Base64:
 
@@ -63,7 +68,7 @@ Bundle all samples into a single self-contained `bundle.json`, embedding each sa
 go run ./tools/bundle_test_samples.go
 ```
 
-## Template Testing
+## [Other] Template Testing
 
 The `template-testing/` directory contains the test runner that validates every template variant against all test samples.
 
@@ -86,12 +91,4 @@ Execute the Rice test script against every sample:
 
 ```
 go test ./template-testing/... -v
-```
-
-## Dependencies
-
-Managed via Go modules (`go.mod`). Requires Go 1.24+.
-
-```
-go mod tidy
 ```
