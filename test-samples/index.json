@@ -19,6 +19,12 @@
   },
   {
     "sample": "success",
+    "protocol": "mcp",
+    "metadata": "src/mcp/success.json",
+    "payload": null
+  },
+  {
+    "sample": "success",
     "protocol": "minecraft",
     "metadata": "src/minecraft/success.json",
     "payload": null

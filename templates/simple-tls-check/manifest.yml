@@ -1,0 +1,12 @@
+name: Simple TLS Certificate Check
+description: |
+  A simple script to monitor TLS certificate status, warning early 7 days before expiration
+variants:
+  - name: Alert to all channels on certificate issues
+    scriptFile: scripts/alerting-all.rice
+  - name: Report minor incident on certificate issues
+    scriptFile: scripts/minor-incident.rice
+  - name: Report major incident on certificate issues
+    scriptFile: scripts/major-incident.rice
+  - name: Report critical incident on certificate issues
+    scriptFile: scripts/critical-incident.rice

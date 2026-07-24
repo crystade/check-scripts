@@ -1,0 +1,29 @@
+if context.error != null {
+    var mcpServerName = "unknown";
+    var mcpServerVersion = "?";
+
+    for layer in context.metadata.layers {
+        if layer.name == "mcp" && layer.data != null {
+            const srv = layer.data.serverInfo;
+            if srv != null {
+                mcpServerName = srv.name;
+                mcpServerVersion = srv.version;
+            }
+            break;
+        }
+    }
+
+    alerting.send({
+        header: "Monitor [%s] MCP server is down from %s"
+            .format(context.monitor.name, context.location),
+        message: "Got error: %s (code: %s)\nMCP Server: %s v%s\nCheck ID: %s"
+            .format(context.error.message, context.error.code,
+                mcpServerName, mcpServerVersion, context.check.id),
+        footer: "%s • Monitored by Crystade"
+            .format(context.team.name),
+        deduplication: {
+            key: context.monitor.id + ":mcp-check",
+            ttl: "1h"
+        }
+    });
+}

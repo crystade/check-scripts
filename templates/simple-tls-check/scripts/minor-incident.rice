@@ -1,0 +1,74 @@
+# Priority 1: connection/handshake error
+if context.error != null {
+    incident.signal({
+        severity: "minor",
+        title: "Monitor [%s] TLS connection failed from %s"
+            .format(context.monitor.name, context.location),
+        content: "Got error: %s (code: %s)\nCheck ID: %s"
+            .format(context.error.message, context.error.code, context.check.id)
+    });
+} else {
+    # Find TLS layer
+    var tlsLayer = null;
+    for layer in context.metadata.layers {
+        if layer.name == "tls" {
+            tlsLayer = layer;
+            break;
+        }
+    }
+
+    if tlsLayer != null && tlsLayer.data != null {
+        const tlsData = tlsLayer.data;
+        const certChain = tlsData.certChain;
+
+        if certChain != null && len(certChain) > 0 {
+            const leaf = certChain[0];
+            const certSubject = leaf.subject;
+            const certIssuer = leaf.issuer;
+            const notAfterStr = leaf.notAfter;
+
+            # Priority 2: check for already-detected cert status issues
+            var statusIssues = "";
+            const statuses = leaf.status;
+            if statuses != null {
+                for s in statuses {
+                    if s != "OK" {
+                        statusIssues = statusIssues + s + "; ";
+                    }
+                }
+            }
+
+            if statusIssues != "" {
+                incident.signal({
+                    severity: "minor",
+                    title: "TLS certificate issue for [%s] from %s"
+                        .format(context.monitor.name, context.location),
+                    content: "Certificate: %s\nIssuer: %s\nExpires: %s\nIssues: %s\nCheck ID: %s"
+                        .format(certSubject, certIssuer, notAfterStr,
+                            statusIssues, context.check.id)
+                });
+            } else {
+                # Priority 3: all statuses OK — check 7-day early expiration
+                const expiryMs = datetime.parse(notAfterStr);
+                const nowMs = datetime.now();
+
+                if expiryMs - nowMs < duration.days(7) {
+                    const daysRemaining = int((expiryMs - nowMs) / 86400000);
+                    var expiryLabel = "EXPIRED";
+                    if daysRemaining > 0 {
+                        expiryLabel = "%d days remaining".format(daysRemaining);
+                    }
+
+                    incident.signal({
+                        severity: "minor",
+                        title: "TLS certificate expiring soon for [%s] from %s"
+                            .format(context.monitor.name, context.location),
+                        content: "Certificate: %s\nIssuer: %s\nExpires: %s (%s)\nCheck ID: %s"
+                            .format(certSubject, certIssuer, notAfterStr,
+                                expiryLabel, context.check.id)
+                    });
+                }
+            }
+        }
+    }
+}

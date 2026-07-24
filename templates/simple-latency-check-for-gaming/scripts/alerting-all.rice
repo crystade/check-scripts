@@ -8,7 +8,7 @@ if context.error == null && context.metadata.rttMs > 60 {
             .format(context.team.name),
         deduplication: {
             key: context.monitor.id + ":simple-uptime-check",
-            ttl: "1m"
+            ttl: "1h"
         }
     });
 }

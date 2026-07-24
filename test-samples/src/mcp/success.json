@@ -1,0 +1,167 @@
+{
+  "protocol": "mcp",
+  "transport": "tcp",
+  "ttdrMs": 0.324305,
+  "rttMs": 2.648595,
+  "success": true,
+  "layers": [
+    {
+      "name": "tcp",
+      "ttfbMs": 2.648595,
+      "ttlbMs": 2.648595,
+      "success": true
+    },
+    {
+      "name": "tls",
+      "ttfbMs": 6.852108,
+      "ttlbMs": 6.852108,
+      "success": true,
+      "data": {
+        "certChain": [
+          {
+            "subject": "CN=nuxt.com",
+            "issuer": "CN=YR1,O=Let's Encrypt,C=US",
+            "serial": "515421084730217962049837642810901173286923",
+            "notBefore": "2026-07-18T00:01:51Z",
+            "notAfter": "2026-10-16T00:01:50Z",
+            "version": 3,
+            "dnsNames": [
+              "nuxt.com"
+            ],
+            "isCa": false,
+            "signatureAlgo": "SHA256-RSA",
+            "publicKeyAlgo": "RSA",
+            "sha256Fingerprint": "832a748e93d86f1f76c841a8097c241fc02dcef846433b815bc9ff6426be9ecd",
+            "status": [
+              "OK"
+            ]
+          },
+          {
+            "subject": "CN=YR1,O=Let's Encrypt,C=US",
+            "issuer": "CN=Root YR,O=ISRG,C=US",
+            "serial": "215347022474305413497868275612454275662",
+            "notBefore": "2025-09-03T00:00:00Z",
+            "notAfter": "2028-09-02T23:59:59Z",
+            "version": 3,
+            "isCa": true,
+            "signatureAlgo": "SHA256-RSA",
+            "publicKeyAlgo": "RSA",
+            "sha256Fingerprint": "13949634d99cd6fd6aa80bc034fefacceb1969feef986586713ecdbb05758d3f",
+            "status": [
+              "OK"
+            ]
+          },
+          {
+            "subject": "CN=Root YR,O=ISRG,C=US",
+            "issuer": "CN=ISRG Root X1,O=Internet Security Research Group,C=US",
+            "serial": "322064809926559212792997219556942571935",
+            "notBefore": "2026-05-13T00:00:00Z",
+            "notAfter": "2032-09-02T23:59:59Z",
+            "version": 3,
+            "isCa": true,
+            "signatureAlgo": "SHA256-RSA",
+            "publicKeyAlgo": "RSA",
+            "sha256Fingerprint": "072639d0b140d5bffae16ad9c3f6cc6086040621f51ee61a6d46a8915c07cf76",
+            "status": [
+              "OK"
+            ]
+          }
+        ],
+        "status": [
+          "OK"
+        ]
+      }
+    },
+    {
+      "name": "mcp",
+      "ttfbMs": 81.310394,
+      "ttlbMs": 283.677194,
+      "success": true,
+      "data": {
+        "protocolVersion": "2025-06-18",
+        "serverInfo": {
+          "name": "Nuxt",
+          "version": "1.0.0",
+          "icons": [
+            {
+              "src": "https://nuxt.com/icon.png",
+              "mimeType": "image/png",
+              "sizes": [
+                "64x64"
+              ]
+            }
+          ]
+        },
+        "capabilities": {
+          "logging": {},
+          "prompts": {
+            "listChanged": true
+          },
+          "resources": {
+            "listChanged": true
+          },
+          "tools": {
+            "listChanged": true
+          }
+        },
+        "resources": [
+          {
+            "name": "nuxt-blog-posts",
+            "uri": "resource://nuxt-com/blog-posts"
+          },
+          {
+            "name": "nuxt-deploy-providers",
+            "uri": "resource://nuxt-com/deploy-providers"
+          },
+          {
+            "name": "nuxt-documentation-pages",
+            "uri": "resource://nuxt-com/documentation-pages"
+          }
+        ],
+        "tools": [
+          {
+            "name": "get-blog-post"
+          },
+          {
+            "name": "list-blog-posts"
+          },
+          {
+            "name": "get-documentation-page"
+          },
+          {
+            "name": "get-getting-started-guide"
+          },
+          {
+            "name": "list-documentation-pages"
+          },
+          {
+            "name": "get-changelog"
+          },
+          {
+            "name": "get-module"
+          },
+          {
+            "name": "list-modules"
+          },
+          {
+            "name": "get-deploy-provider"
+          },
+          {
+            "name": "list-deploy-providers"
+          }
+        ],
+        "prompts": [
+          {
+            "name": "deployment-guide"
+          },
+          {
+            "name": "find-documentation-for-topic"
+          },
+          {
+            "name": "migration-help"
+          }
+        ]
+      }
+    }
+  ]
+}
