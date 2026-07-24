@@ -1,5 +1,16 @@
-# Priority 1: connection/handshake error
-if context.error != null {
+# Only act if this check actually involves a TLS layer
+var tlsLayer = null;
+for layer in context.metadata.layers {
+    if layer.name == "tls" {
+        tlsLayer = layer;
+        break;
+    }
+}
+
+if tlsLayer == null {
+    # Not a TLS check — ignore
+} else if context.error != null {
+    # Priority 1: connection/handshake error
     alerting.send({
         header: "Monitor [%s] TLS connection failed from %s"
             .format(context.monitor.name, context.location),
@@ -13,16 +24,7 @@ if context.error != null {
         }
     });
 } else {
-    # Find TLS layer
-    var tlsLayer = null;
-    for layer in context.metadata.layers {
-        if layer.name == "tls" {
-            tlsLayer = layer;
-            break;
-        }
-    }
-
-    if tlsLayer != null && tlsLayer.data != null {
+    if tlsLayer.data != null {
         const tlsData = tlsLayer.data;
         const certChain = tlsData.certChain;
 

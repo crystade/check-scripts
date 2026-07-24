@@ -1,17 +1,25 @@
-if context.error == null {
+# Only act if this check actually involves an MCP layer
+var mcpLayer = null;
+for layer in context.metadata.layers {
+    if layer.name == "mcp" {
+        mcpLayer = layer;
+        break;
+    }
+}
+
+if mcpLayer == null {
+    # Not an MCP check — ignore
+} else if context.error == null {
     incident.recover();
 } else {
     var mcpServerName = "unknown";
     var mcpServerVersion = "?";
 
-    for layer in context.metadata.layers {
-        if layer.name == "mcp" && layer.data != null {
-            const srv = layer.data.serverInfo;
-            if srv != null {
-                mcpServerName = srv.name;
-                mcpServerVersion = srv.version;
-            }
-            break;
+    if mcpLayer.data != null {
+        const srv = mcpLayer.data.serverInfo;
+        if srv != null {
+            mcpServerName = srv.name;
+            mcpServerVersion = srv.version;
         }
     }
 
