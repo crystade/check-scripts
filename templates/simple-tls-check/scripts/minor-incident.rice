@@ -9,6 +9,7 @@ for layer in context.metadata.layers {
 
 if tlsLayer == null {
     # Not a TLS check — ignore
+    incident.recover();
 } else if context.error != null {
     # Priority 1: connection/handshake error
     incident.signal({
@@ -30,17 +31,18 @@ if tlsLayer == null {
             const notAfterStr = leaf.notAfter;
 
             # Priority 2: check for already-detected cert status issues
-            var statusIssues = "";
+            var issuesList = [];
             const statuses = leaf.status;
             if statuses != null {
                 for s in statuses {
                     if s != "OK" {
-                        statusIssues = statusIssues + s + "; ";
+                        issuesList.append(s);
                     }
                 }
             }
 
-            if statusIssues != "" {
+            if len(issuesList) > 0 {
+                const statusIssues = strings.join("; ", ...issuesList);
                 incident.signal({
                     severity: "minor",
                     title: "TLS certificate issue for [%s] from %s"
@@ -69,8 +71,14 @@ if tlsLayer == null {
                             .format(certSubject, certIssuer, notAfterStr,
                                 expiryLabel, context.check.id)
                     });
+                } else {
+                    incident.recover();
                 }
             }
+        } else {
+            incident.recover();
         }
+    } else {
+        incident.recover();
     }
 }
