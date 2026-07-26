@@ -87,6 +87,7 @@ for loc in locations {
                     assert(typeof(obj["deduplication"]) == "Map", "expect 'deduplication' to be Map");
                     assert(typeof(obj["deduplication"]["key"]) == "String", "expect 'deduplication.key' to be String");
                     assert(typeof(obj["deduplication"]["ttl"]) == "String", "expect 'deduplication.ttl' to be String");
+                    assert(duration.parse(obj["deduplication"]["ttl"]) > 0, "expect 'deduplication.ttl' to be parsable");
                 }
             }
         };
@@ -95,6 +96,7 @@ for loc in locations {
             signal: func(obj) {
                 assert(typeof(obj) == "Map", "expect the first arg to be Map");
                 assert(obj["severity"] == null || typeof(obj["severity"]) == "String", "expect 'severity' to be String");
+                assert(["minor", "major", "critical"].include(obj["severity"]), "expect 'severity' to be one of `minor, major, critical`");
             },
             recover: func() {}
         };
