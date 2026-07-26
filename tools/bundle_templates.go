@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"slices"
 	"strings"
 
 	"github.com/anhcraft/rice/frontend"
@@ -24,6 +25,7 @@ type Template struct {
 	Name        string    `json:"name"`
 	Description string    `json:"description,omitempty"`
 	Variants    []Variant `json:"variants"`
+	Order       int       `json:"order"`
 }
 
 type ManifestVariant struct {
@@ -36,6 +38,7 @@ type Manifest struct {
 	Name        string            `yaml:"name"`
 	Description string            `yaml:"description,omitempty"`
 	Variants    []ManifestVariant `yaml:"variants"`
+	Order       int               `yaml:"order"`
 }
 
 func main() {
@@ -72,6 +75,7 @@ func main() {
 			GroupID:     entry.Name(),
 			Name:        manifest.Name,
 			Description: manifest.Description,
+			Order:       manifest.Order,
 		}
 
 		for _, mv := range manifest.Variants {
@@ -103,6 +107,10 @@ func main() {
 
 		templates = append(templates, tmpl)
 	}
+
+	slices.SortFunc(templates, func(a, b Template) int {
+		return a.Order - b.Order
+	})
 
 	outPath := filepath.Join(templatesDir, "bundle.json")
 	outFile, err := os.Create(outPath)

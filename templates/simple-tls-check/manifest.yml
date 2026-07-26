@@ -10,3 +10,4 @@ variants:
     scriptFile: scripts/major-incident.rice
   - name: Report critical incident on certificate issues
     scriptFile: scripts/critical-incident.rice
+order: 300

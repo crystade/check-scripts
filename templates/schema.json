@@ -27,6 +27,10 @@
       "items": {
         "$ref": "#/$defs/variant"
       }
+    },
+    "order": {
+      "type": "integer",
+      "description": "The ordering number for the template group."
     }
   },
   "$defs": {
